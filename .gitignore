@@ -44,3 +44,6 @@ next-env.d.ts
 
 # Local Netlify folder
 .netlify
+
+# the film is large; it is hosted from the deploy, not git
+public/demo/murmur-demo.mp4

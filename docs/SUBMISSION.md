@@ -5,7 +5,7 @@ Submit before **Fri 30 Oct, 11:59 pm IST** (the organizers' blog says the 30th, 
 ## The four things the form asks for
 
 1. **Link to the working project:** https://murmur-voice-review.netlify.app
-2. **Demo video (max 2 min):** _(add link after recording, see `DEMO_SCRIPT.md`)_
+2. **Demo video (max 2 min):** https://murmur-voice-review.netlify.app/demo
 3. **Wispr usage card screenshot:** _(from Insights in the desktop app)_
 4. **A few lines on the problem, the target user, and how you used Wispr:** use the text below.
 

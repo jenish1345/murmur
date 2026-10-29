@@ -1,0 +1,121 @@
+WEBVTT
+
+00:00.700 --> 00:03.102
+Every code review starts the same way.
+
+00:03.500 --> 00:04.577
+You read the code.
+
+00:04.617 --> 00:06.914
+Then you type every single thought.
+
+00:07.000 --> 00:09.179
+You speak three times faster than you
+
+00:09.219 --> 00:12.005
+type. But speech has no line numbers.
+
+00:12.500 --> 00:13.602
+This is Murmur.
+
+00:13.900 --> 00:15.916
+Review pull requests by talking.
+
+00:15.956 --> 00:18.774
+Powered by your voice, and Wispr Flow.
+
+00:21.800 --> 00:23.732
+Paste any public pull request.
+
+00:23.772 --> 00:25.538
+Murmur pulls the real diff.
+
+00:25.578 --> 00:26.707
+No sign-in.
+
+00:27.700 --> 00:28.781
+Now just talk.
+
+00:28.821 --> 00:31.628
+Hold your Wispr Flow hotkey, and ramble.
+
+00:31.668 --> 00:34.968
+Release, and Flow types it into the box.
+
+00:35.200 --> 00:36.030
+Name a file.
+
+00:36.070 --> 00:37.400
+Say what worries you.
+
+00:37.440 --> 00:39.512
+It doesn't have to be neat.
+
+00:40.100 --> 00:42.549
+One click. Murmur reads the diff, and pins
+
+00:42.589 --> 00:44.638
+each thought to a real line.
+
+00:47.600 --> 00:49.487
+Severity. The exact line.
+
+00:49.527 --> 00:53.181
+And your own sentence, attached as the receipt.
+
+00:57.500 --> 01:00.573
+Click what you said, and it jumps to the comment.
+
+01:03.000 --> 01:05.671
+Then copy it as markdown, or post it as a
+
+01:05.711 --> 01:07.387
+real GitHub review.
+
+01:10.900 --> 01:12.939
+Four things make Murmur different.
+
+01:14.000 --> 01:16.859
+One. Every comment carries your own words.
+
+01:16.899 --> 01:19.241
+Your sentence is the receipt.
+
+01:20.700 --> 01:22.554
+Two. It can't invent a line.
+
+01:22.594 --> 01:24.895
+Every anchor is checked against the real
+
+01:24.935 --> 01:27.880
+diff, and failures are shown as unpinned.
+
+01:28.500 --> 01:30.788
+Three. It says only what you said.
+
+01:30.828 --> 01:32.720
+No opinions of its own.
+
+01:34.400 --> 01:36.071
+Four. It just works.
+
+01:36.111 --> 01:38.889
+Live, no sign-in, nothing stored.
+
+01:39.600 --> 01:40.911
+And the details.
+
+01:40.951 --> 01:43.283
+Severity levels, suggested code,
+
+01:43.323 --> 01:46.638
+shortcuts, a phone layout, and tests.
+
+01:51.000 --> 01:52.060
+Murmur. Say it.
+
+01:52.100 --> 01:53.425
+Ship the review.
+
+01:54.100 --> 01:56.580
+Live now. Open it, and talk.
