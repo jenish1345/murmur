@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --paper: #f3efe6;
+  --ink: #1b1a17;
+  --muted: #6b675c;
+  --line: #d9d3c4;
+  --card: #fbf9f3;
+  --accent: #d93a1e;
+  --accent-ink: #ffffff;
+  --add-bg: #e1eed6;
+  --add-fg: #2b5a19;
+  --del-bg: #f6dcd4;
+  --del-fg: #8a2b17;
+  --sev-blocking: #d93a1e;
+  --sev-suggestion: #a76b0b;
+  --sev-nit: #6b675c;
+  --sev-question: #2b62b0;
+  --sev-praise: #2c7a4b;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --paper: #14130f;
+    --ink: #efebe0;
+    --muted: #9a9585;
+    --line: #2e2b22;
+    --card: #1c1a15;
+    --accent: #ff6a4d;
+    --accent-ink: #14130f;
+    --add-bg: #1d2b15;
+    --add-fg: #a8d98f;
+    --del-bg: #351a11;
+    --del-fg: #f0a38f;
+    --sev-blocking: #ff6a4d;
+    --sev-suggestion: #e0a63c;
+    --sev-nit: #9a9585;
+    --sev-question: #6aa3f0;
+    --sev-praise: #5fc489;
   }
 }
 
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display-face);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+@keyframes bar {
+  0%, 100% { transform: scaleY(0.25); }
+  50% { transform: scaleY(1); }
+}
+.wave-bar {
+  transform-origin: center;
+  animation: bar 1.4s ease-in-out infinite;
+}
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 45%, transparent); }
+  100% { box-shadow: 0 0 0 10px transparent; }
+}
+.mic-live {
+  animation: pulse-ring 1.6s ease-out infinite;
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.rise {
+  animation: rise 0.35s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wave-bar, .mic-live, .rise { animation: none; }
 }
