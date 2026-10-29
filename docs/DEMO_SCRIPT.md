@@ -22,12 +22,12 @@ Limit is 2 minutes. Aim for 1:50. Record in one or two takes, screen plus voice,
 | 1:10-1:35 | Comments appear on the diff. Hover/scroll through 2-3 of them | "Each thought is pinned to the right line, with severity. And every comment keeps the exact sentence I said." |
 | 1:35-1:48 | Click a highlighted phrase in "What you said": it scrolls to the comment | "Click what I said and it jumps to the comment. Nothing is invented: every line is checked against the real diff before I see it." |
 | 1:48-1:55 | Click "Copy review" (and "Post to GitHub" if you have a token ready) | "One click and it's a real GitHub review." |
-| 1:55-2:00 | Cut to Wispr Insights card | "I built this and used it by voice. Here's my Flow usage." |
+| 1:55-2:00 | Cut to Wispr Insights card | "Here's my Flow usage." (say only what your card shows) |
 
 ## Beats the judges are scoring
 
 - **Real problem (30%)**: your first 12 seconds. Be specific and personal, not generic.
-- **Wispr used meaningfully (30%)**: the Flow overlay in the 25-60s shot, plus the Insights card at the end. Also say once that the whole build was done by voice.
+- **Wispr used meaningfully (30%)**: the Flow overlay in the 25-60s shot, plus the Insights card at the end. Only say you built by voice if the Insights card backs it up.
 - **It works (25%)**: a live link on screen, a real PR, real comments landing on real lines.
 - **Demo clarity (15%)**: one flow, no tangents, no jargon. Don't explain the architecture.
 

@@ -22,16 +22,16 @@ Stateless: nothing is stored on the server. Per-IP and daily caps protect the de
 
 ## How I used Wispr Flow
 
-- **In the build:** the spec, every prompt to Claude Code, commit messages and docs were dictated. See [`docs/DICTATED.md`](docs/DICTATED.md) and [`docs/BUILD_PROMPT.md`](docs/BUILD_PROMPT.md).
+- **In the build:** I used Flow for part of the work, and the rest was typed. The exact numbers are on my Insights card below; see [`docs/DICTATED.md`](docs/DICTATED.md) for what was dictated and [`docs/BUILD_PROMPT.md`](docs/BUILD_PROMPT.md) for the build prompt.
 - **In the product:** the entire input is dictated review speech. The textarea is designed for long dictation, and Flow types straight into it.
-- **Usage proof:** _(add Wispr Insights screenshot and word count)_
+- **Usage proof:** Wispr Insights card, 144 words per minute, 84 total words dictated at the time of the screenshot (`docs/wispr-insights.png`).
 
 ## Judging criteria, with evidence
 
 | Criterion | Evidence |
 | --- | --- |
 | Real problem in my work | Reviewing PRs is typing-heavy; Murmur removes the typing, keeps the line context. |
-| Wispr used meaningfully | Product input is dictation; build was dictated end to end; usage card attached. |
+| Wispr used meaningfully | The product's only input is dictated speech, designed around how Flow works (it pastes the finished utterance). Usage card attached. |
 | It works | Live link, no sign-in. "Load sample" runs a real PR in seconds. Anchors verified server-side, 7 unit tests. |
 | Demo clarity | 2-minute video: paste PR, talk, comments land on the exact lines. |
 

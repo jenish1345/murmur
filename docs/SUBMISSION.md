@@ -28,15 +28,15 @@ You paste a public GitHub PR link, talk through your review in a box built for d
 
 **How I used Wispr Flow:**
 - *In the product:* the whole input is dictated review speech. The textarea is designed for long dictation and Flow types straight into it.
-- *In the build:* [I dictated the spec, my prompts to Claude Code, commit messages and docs. State exactly what share was by voice, and keep `docs/DICTATED.md` backing it up.]
-- *Usage:* [N words dictated, from my Insights card.]
+- *In the build:* [Say exactly which parts you dictated, e.g. "the Flow clip, the README section and this submission text". Keep `docs/DICTATED.md` backing it up.]
+- *Usage:* [Update to the number on your latest Insights card. At the first screenshot: 84 words dictated, 144 words per minute.]
 
 **Why it fits the judging criteria:**
 
 | Criterion | Evidence |
 | --- | --- |
 | Real problem in my work | Reviewing PRs is typing-heavy; Murmur removes the typing and keeps the line context. |
-| Wispr used meaningfully | Dictation is the product's input, and the build was done by voice. Usage card and Flow clip attached. |
+| Wispr used meaningfully | Dictation is the product's only input, designed around how Flow pastes finished speech. Usage card and Flow clip attached. |
 | It works | Live link, no sign-in. "Load sample" runs a real PR in about 6 seconds. Anchors are verified server-side and covered by unit tests. |
 | Demo clear | One 2-minute flow: paste, talk, comments land on the lines. |
 
@@ -46,7 +46,7 @@ You paste a public GitHub PR link, talk through your review in a box built for d
 
 Draft, then edit and post it yourself with a screen recording or the demo clip attached:
 
-> I review PRs by talking now. Paste a GitHub PR, ramble through what you noticed with @WisprFlow, and Murmur pins each thought to the exact line of the diff, with the sentence you said attached. Built by voice for #NoHandsChallenge with @WeMakeDevs.
+> I review PRs by talking now. Paste a GitHub PR, ramble through what you noticed with @WisprFlow, and Murmur pins each thought to the exact line of the diff, with the sentence you said attached. Made for #NoHandsChallenge with @WeMakeDevs.
 > [live link]
 
 ## Final checklist
