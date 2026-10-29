@@ -47,7 +47,7 @@ function CommentCard({
   return (
     <div
       id={`cm-${c.id}`}
-      className={`rise mx-3 my-2 rounded-lg border bg-card font-sans text-[13.5px] leading-relaxed shadow-sm transition ${active ? "ring-2 ring-accent" : ""} ${rejected ? "opacity-45" : ""}`}
+      className={`rise mx-1.5 my-2 scroll-mt-24 rounded-lg sm:mx-3 border bg-card font-sans text-[13.5px] leading-relaxed shadow-sm transition ${active ? "ring-2 ring-accent" : ""} ${rejected ? "opacity-45" : ""}`}
       style={{ borderColor: color, borderLeftWidth: 4 }}
     >
       <div className="flex flex-wrap items-center gap-2 px-3 pt-2 text-xs">
@@ -103,6 +103,11 @@ export function DiffView({ files, comments, rejected, edits, activeId, onActivat
               <span className="font-mono text-xs text-[var(--add-fg)]">+{f.additions}</span>
               <span className="font-mono text-xs text-[var(--del-fg)]">−{f.deletions}</span>
             </button>
+            {!isClosed && f.hunks.length === 0 && (
+              <p className="px-3 py-4 text-sm text-muted">
+                {f.binary ? "Binary file, nothing to review as text." : "No line changes to show (rename or mode change)."}
+              </p>
+            )}
             {!isClosed &&
               f.hunks.map((h, hi) => (
                 <div key={hi}>
@@ -111,9 +116,9 @@ export function DiffView({ files, comments, rejected, edits, activeId, onActivat
                     const here = commentsFor(l, f.path, comments);
                     return (
                       <div key={li}>
-                        <div className={`grid grid-cols-[2.75rem_2.75rem_1.25rem_1fr] font-mono text-[12.5px] leading-[1.55] ${rowBg[l.kind]}`}>
-                          <span className="select-none pr-2 text-right text-muted/70">{l.oldNo ?? ""}</span>
-                          <span className="select-none pr-2 text-right text-muted/70">{l.newNo ?? ""}</span>
+                        <div className={`grid grid-cols-[1.75rem_1.75rem_1rem_1fr] font-mono text-[11.5px] leading-[1.55] sm:grid-cols-[2.75rem_2.75rem_1.25rem_1fr] sm:text-[12.5px] ${rowBg[l.kind]}`}>
+                          <span className="select-none pr-1 text-right text-muted/70 sm:pr-2">{l.oldNo ?? ""}</span>
+                          <span className="select-none pr-1 text-right text-muted/70 sm:pr-2">{l.newNo ?? ""}</span>
                           <span className={`select-none text-center ${markFg[l.kind]}`}>{mark[l.kind]}</span>
                           <span className="whitespace-pre-wrap break-words pr-3">{l.text}</span>
                         </div>

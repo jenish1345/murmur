@@ -100,6 +100,7 @@ export default function Murmur() {
       setTalking(false);
       setPosting("idle");
       setTook((performance.now() - t0) / 1000);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (e) {
       setError(e instanceof Error ? e.message : "Something went wrong.");
     } finally {
@@ -194,11 +195,30 @@ export default function Murmur() {
                   {prBusy ? "Loading…" : "Load"}
                 </button>
               </div>
-              {prError && <p className="text-sm text-accent" role="alert">{prError}</p>}
-              <button onClick={loadSample} className="w-fit text-sm text-muted underline decoration-dotted underline-offset-4 hover:text-ink">
+              {prBusy && <div className="h-1 w-full overflow-hidden rounded bg-line"><div className="slide h-full w-1/3 rounded bg-accent" /></div>}
+              {prError && <p className="rounded-lg bg-[var(--del-bg)] p-2.5 text-sm text-[var(--del-fg)]" role="alert">{prError}</p>}
+              <button
+                onClick={loadSample}
+                className="w-full rounded-xl border border-line px-4 py-2.5 text-left text-sm text-muted transition hover:border-accent hover:text-ink sm:w-fit"
+              >
                 No Wispr handy? Try a real PR with a sample ramble →
               </button>
             </div>
+            <ol className="mt-10 grid max-w-2xl gap-4 text-sm sm:grid-cols-3">
+              {[
+                ["1", "Paste a PR", "Any public GitHub pull request."],
+                ["2", "Talk it through", "Hold your Flow hotkey and ramble."],
+                ["3", "Review lands on the lines", "Each comment keeps what you said."],
+              ].map(([n, t, d]) => (
+                <li key={n} className="flex gap-3 sm:block">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-line font-mono text-xs text-accent">{n}</span>
+                  <div className="sm:mt-2">
+                    <div className="font-medium">{t}</div>
+                    <div className="text-muted">{d}</div>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
           <div className="rounded-2xl border border-line bg-card p-5">
             <Motif className="w-full" />
@@ -256,12 +276,15 @@ export default function Murmur() {
                     onChange={(e) => setTranscript(e.target.value)}
                     onFocus={() => setFocused(true)}
                     onBlur={() => setFocused(false)}
+                    onKeyDown={(e) => {
+                      if ((e.metaKey || e.ctrlKey) && e.key === "Enter" && !busy && words >= 8) void run();
+                    }}
                     placeholder="“So in the auth file, the token check never looks at expiry…”"
                     rows={12}
                     className="mt-3 w-full resize-y rounded-xl border border-line bg-paper p-3 text-[15px] leading-relaxed outline-none focus:border-accent"
                   />
                   <div className="mt-2 flex items-center justify-between text-xs text-muted">
-                    <span>{words} words spoken</span>
+                    <span>{words < 8 ? `${words} words. Say a bit more (8+) to continue` : `${words} words spoken · ⌘/Ctrl+Enter to run`}</span>
                     <button onClick={loadSample} className="underline decoration-dotted underline-offset-2 hover:text-ink">use sample ramble</button>
                   </div>
                   {error && (
@@ -272,7 +295,20 @@ export default function Murmur() {
                     disabled={busy || words < 8}
                     className="mt-3 w-full rounded-xl bg-accent py-3 text-sm font-semibold text-accent-ink transition disabled:opacity-40"
                   >
-                    {busy ? "Pinning your words to the diff…" : error ? "Retry" : "Turn it into a review"}
+                    {busy ? (
+                      <span className="inline-flex items-center justify-center gap-2">
+                        <span className="flex h-3.5 items-center gap-[2px]">
+                          {[0, 1, 2, 3].map((i) => (
+                            <span key={i} className="wave-bar h-full w-[3px] rounded-full bg-accent-ink" style={{ animationDelay: `${i * 0.13}s` }} />
+                          ))}
+                        </span>
+                        Pinning your words to the diff…
+                      </span>
+                    ) : error ? (
+                      "Retry"
+                    ) : (
+                      "Turn it into a review"
+                    )}
                   </button>
                   {review && (
                     <button onClick={() => setTalking(false)} className="mt-2 w-full text-sm text-muted underline">back to the review</button>
@@ -287,6 +323,23 @@ export default function Murmur() {
                     </span>
                   </div>
                   <p className="mt-3 font-display text-lg leading-snug">{review.summary}</p>
+
+                  {review.comments.length === 0 && (
+                    <p className="mt-3 rounded-lg border border-dashed border-line p-3 text-sm text-muted">
+                      Nothing could be pinned to a line. Try naming the file or function out loud (“in auth dot ts, the token check…”) and run it again.
+                    </p>
+                  )}
+                  {review.comments.length > 0 && (
+                    <button
+                      onClick={() => document.getElementById(`cm-${review.comments[0].id}`)?.scrollIntoView({ behavior: "smooth", block: "center" })}
+                      className="mt-3 w-full rounded-xl border border-line py-2 text-sm font-medium lg:hidden"
+                    >
+                      Jump to the comments on the diff ↓
+                    </button>
+                  )}
+                  {review.omittedFiles.length > 0 && (
+                    <p className="mt-3 text-xs text-muted">Not reviewed (lockfiles, binaries or too large): {review.omittedFiles.join(", ")}</p>
+                  )}
 
                   <h3 className="mt-5 text-xs font-semibold uppercase tracking-wider text-muted">What you said</h3>
                   <div className="mt-2 rounded-xl bg-paper p-3">
