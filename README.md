@@ -4,7 +4,7 @@ Built for **No Hands: The Wispr Challenge** (WeMakeDevs x Wispr Flow), Builders 
 
 Paste a public GitHub PR, talk through your review, and Murmur turns the ramble into precise inline comments. Every comment is pinned to a real line of the diff and linked to the exact sentence you said.
 
-**Live:** _(add the Vercel URL)_ · **Demo video:** _(add link)_
+**Live:** https://murmur-voice-review.netlify.app · **Demo video:** _(add link)_
 
 ## The problem
 

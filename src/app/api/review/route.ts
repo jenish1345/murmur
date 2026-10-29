@@ -36,6 +36,7 @@ export async function POST(req: Request) {
     const friendly = /ANTHROPIC_API_KEY|no reviewable|malformed|didn't return/.test(msg)
       ? msg
       : "The review took too long or the model was busy. Your transcript is kept. Hit retry.";
-    return NextResponse.json({ error: friendly }, { status: 502 });
+    const status = (e as { status?: number })?.status;
+    return NextResponse.json({ error: friendly, detail: `${status ?? ""} ${msg}`.trim().slice(0, 300) }, { status: 502 });
   }
 }

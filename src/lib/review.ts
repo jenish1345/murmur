@@ -113,7 +113,9 @@ Rules:
 - suggestedChange only when the reviewer spelled out replacement code; otherwise null.
 - If a point can't be confidently tied to a line in this diff, put it in "unmapped" instead of guessing.
 - verdict: approve / request_changes only if the reviewer said or clearly implied it; otherwise "comment".
-- summary: 2-3 sentences capturing the overall review as the reviewer would say it.`;
+- summary: 2-3 sentences capturing the overall review as the reviewer would say it.
+
+Respond only by calling the submit_review tool exactly once. Do not write any other text.`;
 
 let client: Anthropic | null = null;
 
@@ -143,7 +145,6 @@ export async function generateReview(
         input_schema: schema as Anthropic.Tool.InputSchema,
       },
     ],
-    tool_choice: { type: "tool", name: "submit_review" },
     messages: [
       {
         role: "user",
